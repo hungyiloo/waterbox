@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel -p 4321 watch index.html"
+    "start": "parcel -p 4321 watch index.html",
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
