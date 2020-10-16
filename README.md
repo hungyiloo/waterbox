@@ -20,11 +20,20 @@ Bring up Developer Tools in your browser using <kbd>F12</kbd> and check out the 
 
 You don't have to use it. Just ignore the templates and remove any `renderContainer` calls from `app.ts`. You can hand craft your markup in `index.html` or construct it all entirely within TypeScript/JavaScript.
 
-# Loading External Libraries
+# How to Load External Libraries
 
 If you need another library, the best way is to find the package on https://www.npmjs.com/ and `import` the package properly in TypeScript. You might also have to install a corresponding `@types` package to get TypeScript more happy with your import. This works well, but takes a long time.
 
-If you want to load something quick and dirty, find the CDN URLs from https://cdnjs.com/ and put them in the `<head>` of `index.html`. You can refer to the global variables that the libraries expose within TypeScript (e.g. `app.ts`) but your editor may complain, since there are no types defined.
+For example, to load [Leaflet](https://leafletjs.com/examples/quick-start/) properly, with all typings:
+
+1. `npm install --save-dev leaflet @types/leaflet`
+2. Add `<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" type="text/css" media="screen" />` to the `<head>` of `index.html`
+3. `import * as L from 'leaflet';` at the top of `app.ts`
+
+Then you can use Leaflet normally within TypeScript.
+
+## The Quick & Dirty Way
+If you want to load something quick smart, find the CDN URLs from https://cdnjs.com/ and put them in the `<head>` of `index.html`. You can refer to the global variables that the libraries expose within TypeScript (e.g. `app.ts`) but your editor may complain, since there are no types defined.
 
 For example, if you wanted to quickly import [Leaflet](https://leafletjs.com/examples/quick-start/), you'll need to use the global `L` interact with Leaflet. TypeScript doesn't know about `L`, so you'll need to tell it to ignore `L` by adding a line near the top of your TypeScript file:
 
