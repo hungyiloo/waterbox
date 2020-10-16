@@ -8,30 +8,34 @@ export async function main() {
   // Set up the database
   const { db, query } = await initDatabase();
 
-  // Fetch some data from the database
-  const boundary = 4;
-  const fruits = query(`SELECT * FROM fruits WHERE id < ${boundary}`);
-
   // A method to render the data from above onto the page
-  async function renderFruits() {
-  // Render the template main.mustache into #main-container
+  async function renderFruits(condition?: string) {
+    // Fetch some data from the database
+    const fruits = query(`SELECT * FROM fruits WHERE ${condition || '1=1'}`);
+    // Render the template main.mustache into #main-container
     await renderContainer(
-      '#main-container', // Find this id inside ./index.html
-      'main.mustache',   // Find this template in ./templates/main.mustache
-      { fruits }         // The data we fetched above
+      '#main-container',    // Find this id inside .  /index.html
+      'main.mustache',      // Find this template in ./templates/main.mustache
+      { fruits, condition } // The data we fetched above and the query condition that we last used
     );
 
-    // Some example button click event handlers.
+    // Some example DOM event handlers.
     // These need to be set up after the render,
-    // otherwise the buttons won't yet exist.
-    const destroyFruitsButton = document.querySelector('#destroy-fruits-btn') as HTMLButtonElement;
-    destroyFruitsButton.onclick = (_clickEvent: MouseEvent) => {
-      // Remove the fruit table from the DOM
-      const fruitTable = document.querySelector('#fruit-table');
-      if (fruitTable) {
-        fruitTable.remove();
-      }
+    // otherwise the buttons/inputs won't yet exist.
+    const conditionInput = document.querySelector('#condition-input') as HTMLInputElement;
+    const queryButton = document.querySelector('#query-btn') as HTMLButtonElement;
+
+    const queryHandler = async (_event: Event) => {
+      const condition = conditionInput ? conditionInput.value : null;
+      // Re-render with a condition in the where clause
+      await renderFruits(condition)
     };
+    queryButton.onclick = queryHandler;
+    conditionInput.onkeypress = async (event: KeyboardEvent) => {
+      if (event.key === 'Enter') {
+        await queryHandler(event);
+      }
+    }
 
     const resetButton = document.querySelector('#reset-btn') as HTMLButtonElement;
     resetButton.onclick = async (_clickEvent: MouseEvent) => {

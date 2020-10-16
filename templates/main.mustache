@@ -1,6 +1,20 @@
 <h1 id="logo">🌊 WaterBox</h1>
 
 <h1>A List of Fruits From db.sqlite</h1>
+<div style="display: flex;">
+  <pre>SELECT * FROM fruits WHERE</pre>
+  <input id="condition-input"
+         type="text"
+         placeholder="e.g. description LIKE '%danger%'"
+         size="35"
+         value="{{condition}}"
+         autofocus
+         style="margin-left: 0.5rem;"/>
+  <button id="query-btn"
+          style="margin-left: 0.5rem;">⚡ Query</button>
+  <button id="reset-btn"
+          style="margin-left: 0.5rem;">Reset</button>
+</div>
 <table id="fruit-table">
   <thead>
     <tr>
@@ -19,6 +33,3 @@
     {{/fruits}}
   </tbody>
 </table>
-
-<button id="destroy-fruits-btn">Destroy Fruits!</button>
-<button id="reset-btn">Reset</button>
