@@ -27,5 +27,8 @@ function query(db: SqlJs.Database, sql: string, params?: SqlJs.ParamsObject): Sq
     const row = stmt.getAsObject();
     results.push(row);
   }
+  console.info('Executed SQL', `"${sql}"`,
+               'with params', params || '[none]',
+               'resulting in ', results);
   return results;
 }

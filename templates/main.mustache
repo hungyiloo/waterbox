@@ -1,0 +1,24 @@
+<h1 id="logo">🚀 Prototypr</h1>
+
+<h1>A List of Fruits From db.sqlite</h1>
+<table id="fruit-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#fruits}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{description}}</td>
+      </tr>
+    {{/fruits}}
+  </tbody>
+</table>
+
+<button id="destroy-fruits-btn">Destroy Fruits!</button>
+<button id="reset-btn">Reset</button>
