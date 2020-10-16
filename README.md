@@ -2,6 +2,8 @@
 
 WaterBox is a simple boilerplate for creating lightweight interactive pages using TypeScript, SQLite (with [sql.js](https://sql.js.org/)) and [Mustache](https://github.com/janl/mustache.js) templating. It's all glued together using [Parcel](https://parceljs.org/), and has some nice semantic styling from [Water.css](https://github.com/kognise/water.css).
 
+See an example [here](https://brave-panini-a4cca2.netlify.app/).
+
 # Quick Start
 
 After cloning this repo, cd into the root of the repo and run `npm install` to install all dependencies, then run `npm start` to build and start the server, and visit http://localhost:4321 in your browser to see it.
