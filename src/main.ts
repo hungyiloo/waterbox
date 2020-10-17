@@ -12,7 +12,7 @@ export async function main() {
 
   // Data access methods //////////////////////////////////////////////////////
   function getFruits(filterCondition?: string) {
-    return query(`SELECT * FROM fruits WHERE ${filterCondition || '1=1'}`);
+    return query(`SELECT * FROM fruits ${filterCondition ? `WHERE ${filterCondition}` : ''}`);
   }
 
 
