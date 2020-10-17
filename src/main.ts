@@ -5,46 +5,61 @@ import { renderContainer } from './renderer';
  * This will be called once the page has loaded
  */
 export async function main() {
-  // Set up the database
+
+  // Initialise app-wide context //////////////////////////////////////////////
   const { db, query } = await initDatabase();
 
-  // Main render method
-  async function renderFruits(filterCondition?: string) {
 
-    // Fetch some data from the database
-    const fruits = query(`SELECT * FROM fruits WHERE ${filterCondition || '1=1'}`);
+  // Data access methods //////////////////////////////////////////////////////
+  function getFruits(filterCondition?: string) {
+    return query(`SELECT * FROM fruits WHERE ${filterCondition || '1=1'}`);
+  }
 
+
+  // Main render method ///////////////////////////////////////////////////////
+  async function renderFruits({ fruits, filterCondition }: { fruits: any[]; filterCondition?: string; }) {
     // Render the template main.mustache into #main-container
     await renderContainer(
       '#main-container',          // Find this id inside ./index.html
       'main.mustache',            // Find this template in ./templates/main.mustache
-      { fruits, filterCondition } // The data we fetched above and the query condition that we last used
+      { fruits, filterCondition } // View state for mustache to render
     );
 
-    // Some example DOM event handlers.
-    // These need to be set up after the render,
-    // otherwise the buttons/inputs won't yet exist.
-    const conditionInput = document.querySelector('#condition-input') as HTMLInputElement;
+    // Bind some example DOM event handlers.
+    // These need to be set up after the render, otherwise the buttons/inputs won't yet exist.
     const queryButton = document.querySelector('#query-btn') as HTMLButtonElement;
-
-    const queryHandler = async (_: Event) => {
-      const newFilterCondition = conditionInput ? conditionInput.value : null;
-      await renderFruits(newFilterCondition)
-    };
-    queryButton.onclick = queryHandler;
-    conditionInput.onkeypress = async (event: KeyboardEvent) => {
-      if (event.key === 'Enter') {
-        await queryHandler(event);
-      }
-    }
-
     const resetButton = document.querySelector('#reset-btn') as HTMLButtonElement;
-    resetButton.onclick = async (_clickEvent: MouseEvent) => {
-      // Re-render to reset everything
-      await renderFruits();
-    };
+    const conditionInput = document.querySelector('#condition-input') as HTMLInputElement;
+
+    queryButton.onclick = handleQuery;
+    conditionInput.onkeypress = handleInputKeypress;
+    resetButton.onclick = handleReset;
   }
 
-  // Execute the render
-  renderFruits();
+
+  // Event handlers ///////////////////////////////////////////////////////////
+  async function handleQuery(_e: Event) {
+    const conditionInput = document.querySelector('#condition-input') as HTMLInputElement;
+    const filterCondition = conditionInput ? conditionInput.value : null;
+    const fruits = getFruits(filterCondition);
+    await renderFruits({ fruits, filterCondition })
+  };
+
+  async function handleInputKeypress(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      await handleQuery(event);
+    }
+  }
+
+  async function handleReset(_e: Event) {
+    await renderFruits({
+      fruits: getFruits()
+    });
+  }
+
+
+  // Execute the initial render ///////////////////////////////////////////////
+  await renderFruits({
+    fruits: getFruits()
+  });
 }

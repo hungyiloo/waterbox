@@ -23,7 +23,7 @@ function query(db: SqlJs.Database, sql: string, params?: SqlJs.ParamsObject): Sq
     stmt.bind(params);
   }
   const results: SqlJs.ParamsObject[] = [];
-  while(stmt.step()) {
+  while (stmt.step()) {
     const row = stmt.getAsObject();
     results.push(row);
   }
