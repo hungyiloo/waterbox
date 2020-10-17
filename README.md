@@ -1,8 +1,8 @@
 # 🌊 WaterBox
 
-WaterBox is a low-code boilerplate base for rapid prototyping and interactive demos using [TypeScript](https://www.typescriptlang.org/), [SQLite](https://www.sqlite.org/) (with [sql.js](https://sql.js.org/)) and [Mustache](https://github.com/janl/mustache.js) templating, **all run within the browser, with no server required**.
+WaterBox is a low-code boilerplate base for rapid prototyping and interactive demos using [TypeScript](https://www.typescriptlang.org/), [SQLite](https://www.sqlite.org/) (with [sql.js](https://sql.js.org/)) and [Mustache](https://github.com/janl/mustache.js) templating, **all run within the browser with no server required**.
 
-It's all glued together using [Parcel](https://parceljs.org/), and has some nice semantic styling from [Water.css](https://github.com/kognise/water.css).
+It's all glued together using [Parcel](https://parceljs.org/) and has some nice semantic styling from [Water.css](https://github.com/kognise/water.css).
 
 **See an example app with in-browser SQL querying [here](https://brave-panini-a4cca2.netlify.app/)**.
 
@@ -22,7 +22,7 @@ And Water.css gives you free *classless* styling as long as you write proper HTM
 
 There is no right or wrong way to do something with WaterBox. Keep what you need, delete what you don't, and change the rest to your liking.
 
-However if you're wanting to build a production-ready web app, **you shouldn't be using WaterBox**.
+**If you're wanting to build a production-ready web app, you shouldn't be using WaterBox**. The sql.js way of fetching data isn't meant to be fast and it doesn't support persisting any data back to the database for future sessions.
 
 ## Quick Start
 
@@ -70,4 +70,4 @@ You can also adjust the variables in `main.css` to adjust the overall colors.
 
 ## Building
 
-WaterBox is 🚨not designed for production use🚨 but it can be built to be served statically, if you must. Just `npm run build` and grab the output from the `./dist/` folder and host wherever you like.
+WaterBox is **not meant for production** but it can be built to be served statically, if you must do it. Just `npm run build` and grab the output from the `./dist/` folder and host wherever you like.
