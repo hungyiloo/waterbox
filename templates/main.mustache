@@ -7,11 +7,12 @@
          type="text"
          placeholder="e.g. description LIKE '%danger%'"
          size="35"
-         value="{{condition}}"
+         value="{{filterCondition}}"
          autofocus
+         autocomplete="off"
          style="margin: 0 0.5rem 0.5rem 0;"/>
   <button id="query-btn"
-          style="margin: 0 0.5rem 0.5rem 0;">⚡ Query</button>
+          style="margin: 0 0.5rem 0.5rem 0;">Query ⚡</button>
   <button id="reset-btn">Reset</button>
 </div>
 <table id="fruit-table">
@@ -30,5 +31,15 @@
         <td>{{description}}</td>
       </tr>
     {{/fruits}}
+    {{^fruits}}
+      <tr>
+        <td colspan="3" style="text-align: center;">
+          <i>Oops...nothing matches your filter.</i>
+        </td>
+      </tr>
+    {{/fruits}}
   </tbody>
 </table>
+<p>
+  Download the <a href="/db.sqlite">SQLite database</a> to see the data that powers the list above.
+</p>
