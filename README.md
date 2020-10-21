@@ -71,3 +71,9 @@ You can also adjust the variables in `main.css` to adjust the overall colors.
 ## Building
 
 WaterBox is **not meant for production** but it can be built to be served statically, if you must do it. Just `npm run build` and grab the output from the `./dist/` folder and host wherever you like.
+
+## Troubleshooting
+
+### Cannot read property 'type' of undefined (after making a change)
+
+If you're using a JetBrains IDE, try going to *Settings > Appearance & Behavior > System Settings* and **unticking** "Use 'safe write'" in the *Synchronization* section.
