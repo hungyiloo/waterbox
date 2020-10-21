@@ -8,7 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='shortcut icon' type='image/svg+xml' href='/favicon.svg'/>
     <link rel="stylesheet" href="styles/water.css" type="text/css" media="screen" />
+
+    <!-- Your custom stylesheets are loaded here.
+         You can load more stylesheets if you need to. -->
     <link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
+
+    <!-- You can optionally put more CDN references here, like other 3rd party
+         scripts and styles. But if a package exists in NPM, it's better to import
+         that instead. Follow the instructions in README.md for examples on how
+         to import something properly. -->
   </head>
   <body>
     <!--[if lt IE 8]>
@@ -18,8 +26,17 @@
       your experience.
       </p>
     <![endif]-->
+
+    <!-- You can remove the following line if you don't need the loading spinner -->
     <div id="loading-spinner"><div></div><div></div><div></div><div></div></div>
-    <div id="main-container"></div>
+
+    <div id="main-container">
+      <!-- This is where the default mustache template is rendered.
+           If you don't use mustache, you can delete or repurpose this -->
+    </div>
+
+    <!-- Load all the JavaScript/TypeScript.
+         This element should stay at the bottom. -->
     <script src="./index.ts"></script>
   </body>
 </html>
