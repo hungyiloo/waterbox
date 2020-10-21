@@ -47,7 +47,7 @@ export async function main() {
 
   // Event handlers ///////////////////////////////////////////////////////////
   async function handleQuery(_e: Event) {
-    const conditionInput = getById<HTMLInputElement>('#condition-input');
+    const conditionInput = getById<HTMLInputElement>('condition-input');
     const filterCondition = conditionInput ? conditionInput.value : null;
     const fruits = getFruits(filterCondition);
     await renderFruits({ fruits, filterCondition })
