@@ -24,7 +24,7 @@
   --highlight: #ff0;
 }
 
-/* Comment out this entire section if you don't want the dark theme */
+/* Delete or comment out this entire section if you don't want the dark theme */
 /* Or copy ALL of its values to the section above to ALWAYS use the dark theme */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -65,8 +65,7 @@
   justify-content: center;
 }
 #logo img {
-  height: 6rem;
-  width: 6rem;
+  max-height: 6rem;
   margin-right: 0.3em;
   position: relative;
   top: 0.3rem;
@@ -85,6 +84,7 @@
   width: 200px;
   height: 200px;
   transform: translate(-50%, -60%);
+  filter: opacity(0.3);
 }
 #loading-spinner div {
   box-sizing: border-box;
@@ -92,10 +92,10 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  border: 25px solid #cef;
+  border: 25px solid #11A3BB;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #cef transparent transparent transparent;
+  border-color: #11A3BB transparent transparent transparent;
 }
 #loading-spinner div:nth-child(1) {
   animation-delay: -0.45s;
