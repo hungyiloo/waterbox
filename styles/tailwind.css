@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Restore some sane <p> margins */
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}

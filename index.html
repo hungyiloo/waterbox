@@ -7,11 +7,20 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='shortcut icon' type='image/svg+xml' href='/favicon.svg'/>
-    <link rel="stylesheet" href="styles/water.css" type="text/css" media="screen" />
+    <!-- Tailwind CSS is included here for convenience, as the utility-based styling
+         works well with and opt-in approach. You don't need to use it if you don't
+         want to. It'll be optimized away during building if you don't use it at all.
+         But you can remove it explicitly as well. -->
+    <link rel="stylesheet" href="styles/tailwind.css"/>
+
+    <!-- Feel free to remove water.css here if you have no need for lazy styling.
+         In particular, if it's getting in the way of your custom styles, you can
+         get rid of it and recreate what you need using tailwind or hand-rolled CSS. -->
+    <link rel="stylesheet" href="styles/water.css"/>
 
     <!-- Your custom stylesheets are loaded here.
          You can load more stylesheets if you need to. -->
-    <link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="styles/main.css"/>
 
     <!-- You can optionally put more CDN references here, like other 3rd party
          scripts and styles. But if a package exists in NPM, it's better to import

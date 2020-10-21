@@ -8,7 +8,7 @@
   <input id="condition-input"
          type="text"
          placeholder="e.g. description LIKE '%danger%'"
-         size="35"
+         size="30"
          value="{{filterCondition}}"
          autofocus
          autocomplete="off"
@@ -20,7 +20,7 @@
 <table id="fruit-table">
   <thead>
     <tr>
-      <th width="20">ID</th>
+      <th width="40">ID</th>
       <th width="100">Name</th>
       <th>Description</th>
     </tr>
@@ -44,4 +44,8 @@
 </table>
 <p>
   Download the <a href="db.sqlite">SQLite database</a> to see the data that powers the list above.
+</p>
+<p style="margin-top: 2em;">
+  Need to build a stronger layout?
+  <button id="go-to-tailwind-btn" style="margin-left: 1em;">Check out the Tailwind CSS template 🚀</button>
 </p>

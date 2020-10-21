@@ -1,0 +1,65 @@
+<!-- This resets the water.css auto body layout,
+     to allow for a wider, more flexible layout for complex apps -->
+<style>
+ body {
+   padding: 0;
+   margin: 0;
+   max-width: 100%;
+ }
+</style>
+
+<div class="container mx-auto mt-10">
+  <div class="grid grid-cols-5 gap-6">
+    <div class="col-span-1 flex justify-end">
+      <img src="logo.svg" class="h-24"/>
+    </div>
+    <div class="col-span-4 text-5xl text-black dark:text-white font-hairline flex items-center border-b border-gray-400 dark:border-gray-800">
+      Water<span class="opacity-50">Box</span>
+    </div>
+    <div class="col-span-1 bg-gray-400 dark:bg-gray-800 bg-opacity-25 rounded p-5">
+      <!-- Sidebar -->
+      <p class="mt-0">This is the sidebar.</p>
+      <p>You can have a list of buttons or links here.</p>
+    </div>
+    <div class="col-span-4">
+      <!-- Main content area -->
+      <div class="mt-0 mb-6 text-4xl font-light">Content Area</div>
+      <p>This is the content area. You can have anything you want here.</p>
+      <p class="opacity-25">
+        Sapien eget mi proin sed libero enim sed faucibus turpis.
+        Etiam tempor orci eu lobortis.
+        Maecenas sed enim ut sem viverra aliquet.
+        At tellus at urna condimentum mattis pellentesque.
+        Purus sit amet volutpat consequat mauris nunc.
+      </p>
+      <p class="opacity-25">
+        Lectus arcu bibendum at varius.
+        Adipiscing enim eu turpis egestas.
+        Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        Odio facilisis mauris sit amet.
+        Semper risus in hendrerit gravida rutrum quisque non tellus orci.
+        Nunc lobortis mattis aliquam faucibus purus.
+      </p>
+      <p class="opacity-25">
+        Maecenas sed enim ut sem viverra aliquet.
+        Etiam tempor orci eu lobortis.
+        At tellus at urna condimentum mattis pellentesque.
+        Sapien eget mi proin sed libero enim sed faucibus turpis.
+        Purus sit amet volutpat consequat mauris nunc.
+      </p>
+      <p class="opacity-25">
+        Adipiscing enim eu turpis egestas.
+        Nunc lobortis mattis aliquam faucibus purus.
+        Semper risus in hendrerit gravida rutrum quisque non tellus orci.
+        Odio facilisis mauris sit amet.
+        Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        Lectus arcu bibendum at varius.
+      </p>
+      <button id="go-to-main-btn" class="mt-8 text-2xl font-light">⬅ Go Back to the Main Example</button>
+    </div>
+    <div class="col-start-2 col-span-4 text-sm bg-opacity-25 rounded p-5 border-t border-gray-400 dark:border-gray-800">
+      <span>This is a footer area.</span>
+      <span class="opacity-25">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    </div>
+  </div>
+</div>

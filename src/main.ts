@@ -38,10 +38,12 @@ export async function main() {
     const queryButton = getById<HTMLButtonElement>('query-btn');
     const resetButton = getById<HTMLButtonElement>('reset-btn');
     const conditionInput = getById<HTMLInputElement>('condition-input');
+    const tailwindButton = getById<HTMLButtonElement>('go-to-tailwind-btn');
 
     queryButton.onclick = handleQuery;
-    conditionInput.onkeypress = handleInputKeypress;
     resetButton.onclick = handleReset;
+    conditionInput.onkeypress = handleInputKeypress;
+    tailwindButton.onclick = handleTailwindNavigation;
   }
 
 
@@ -63,6 +65,11 @@ export async function main() {
     await renderFruits({
       fruits: getFruits()
     });
+  }
+
+  async function handleTailwindNavigation(_e: Event) {
+    await renderContainer('#main-container', 'tailwind.mustache');
+    getById<HTMLButtonElement>('go-to-main-btn').onclick = handleReset;
   }
 
 

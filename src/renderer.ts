@@ -1,6 +1,6 @@
 import * as Mustache from 'mustache';
 
-export async function renderContainer(containerSelector: string, templateName: string, view: any) {
+export async function renderContainer(containerSelector: string, templateName: string, view: any = {}) {
   const container = document.querySelector(containerSelector);
   console.info('Fetching template file:', templateName);
   const template = await fetch(templateName).then(r => r.text());
