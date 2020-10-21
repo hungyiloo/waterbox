@@ -24,6 +24,10 @@ There is no right or wrong way to do something with WaterBox. Keep what you need
 
 **If you're wanting to build a production-ready web app, you shouldn't be using WaterBox**. The sql.js way of fetching data isn't meant to be fast and it doesn't support persisting any data back to the database for future sessions.
 
+## Requirements
+
+You'll need Node (>v12.19.0) installed before you can follow the Quick Start below. See the instructions at https://nodejs.org/.
+
 ## Quick Start
 
 After cloning this repo, cd into the root of the repo and run `npm install` to install all dependencies, then run `npm start` to build and start the server, and visit http://localhost:4321 in your browser to see it.
