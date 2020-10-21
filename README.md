@@ -74,6 +74,10 @@ WaterBox is **not meant for production** but it can be built to be served static
 
 ## Troubleshooting
 
-### Cannot read property 'type' of undefined (after making a change)
+### CLI: Cannot read property 'type' of undefined (after making a change)
 
 If you're using a JetBrains IDE, try going to *Settings > Appearance & Behavior > System Settings* and **unticking** "Use 'safe write'" in the *Synchronization* section.
+
+### Browser Console: Cannot read property 'apply' of undefined (on startup)
+
+If you've upgraded sql.js to 1.4.0, you'll get this error. It's not yet supported. Please use 1.3.2 for now.
