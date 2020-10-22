@@ -68,7 +68,7 @@ export async function main() {
   }
 
   async function handleTailwindNavigation(_e: Event) {
-    await renderContainer('#main-container', 'tailwind.mustache');
+    await renderContainer('#main-container', 'tailwind-grid.mustache');
     getById<HTMLButtonElement>('go-to-main-btn').onclick = handleReset;
   }
 
