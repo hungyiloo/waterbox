@@ -2,7 +2,9 @@
 
 WaterBox is a low-code boilerplate base for rapid prototyping and interactive demos using [TypeScript](https://www.typescriptlang.org/), [SQLite](https://www.sqlite.org/) (with [sql.js](https://sql.js.org/)) and [Mustache](https://github.com/janl/mustache.js) templating, **all run within the browser with no server required**.
 
-It's all glued together using [Parcel](https://parceljs.org/) and has some nice semantic default styling from [Water.css](https://github.com/kognise/water.css) and convenient access to all of [Tailwind CSS](https://tailwindcss.com/)'s utility classes for styling things *fast*.
+It's all glued together using [Parcel](https://parceljs.org/) and has some nice semantic default styling from [Water.css](https://github.com/kognise/water.css) along with convenient access to all of [Tailwind CSS](https://tailwindcss.com/)'s utility classes for styling things *fast*. 
+
+Need something graphical to convey your message? WaterBox even comes with [remixicon](https://remixicon.com/) so you can easily use one of 2000+ icons instantly in your markup.
 
 **See an example app with in-browser SQL querying [here](https://brave-panini-a4cca2.netlify.app/)**.
 
@@ -16,7 +18,7 @@ WaterBox is built on a foundation of time-tested technologies that most develope
 - SQL (in the form of SQLite and sql.js)
 - Mustache templating
 
-With very little code (you could read it all in 20 minutes) WaterBox ties it all together into a simple `npm start` with live-reloading to let you get on with preparing that important demo. You won't have to worry about TypeScript compilation, running a web server, etc.
+With very little code (you could read it all in under an hour) WaterBox ties it all together into a simple `npm start` with live-reloading to let you get on with preparing that important demo. You won't have to worry about TypeScript compilation, running a web server, etc.
 
 And Water.css gives you free *classless* styling as long as you write proper HTML. For more advanced styling, Tailwind CSS gives you thousands of utility classes that you can write directly in to your HTML. You only have to write plain CSS for the UI that you *really* want to deeply customize.
 
@@ -35,6 +37,8 @@ After cloning this repo, cd into the root of the repo and run `npm install` to i
 Edit the data in `./static/db.sqlite` (I recommend using [DB Browser for SQLite](https://sqlitebrowser.org/)) to see the HTML table change.
 
 Edit the template in `./templates/main.mustache` to add things to the page.
+
+See a more advanced template in `./templates/tailwind-grid.mustache`.
 
 Have a look at `./src/main.ts` to see the `main()` method, written in TypeScript, that fetches the data from SQLite and renders it onto the page. You can replace this with whatever you like.
 
