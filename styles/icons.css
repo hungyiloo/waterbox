@@ -1,0 +1,26 @@
+/* Default styles for remixicons */
+
+/* To use an icon via the icon font:
+   <i class="ri-heart-fill"></i>
+   Where "ri-heart-fill" is the icon name as found on https://remixicon.com
+
+   If you aren't using icon fonts, you can remove the following line to
+   optimize the build and reduce loading time.
+*/
+@import '../node_modules/remixicon/fonts/remixicon.css';
+
+/* To use an icon via SVG sprites:
+   <svg class="ri">
+     <use xlink:href="./remixicon.symbol.svg#ri-heart-fill"></use>
+   </svg>
+   Where "ri-heart-fill" is the icon name as found on https://remixicon.com/
+*/
+.ri {
+  fill: currentColor;
+  height: 1.1em;
+  width: 1.1em;
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  top: 0.1em;
+}

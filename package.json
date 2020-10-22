@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel -p 4321 watch index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "clean": "rimraf .cache dist"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +17,9 @@
     "mustache": "^4.0.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.5.0",
-    "sql.js": "^1.3.2",
+    "remixicon": "^2.5.0",
+    "rimraf": "^3.0.2",
+    "sql.js": "^1.4.0",
     "tailwindcss": "^1.9.5",
     "typescript": "^4.0.3",
     "water.css": "^2.0.0"
@@ -25,7 +28,8 @@
     "staticPath": [
       "./static",
       "./templates",
-      "./node_modules/sql.js/dist/sql-wasm.wasm"
+      "./node_modules/sql.js/dist/sql-wasm.wasm",
+      "./node_modules/remixicon/fonts/remixicon.symbol.svg"
     ],
     "watcherGlob": "**"
   },

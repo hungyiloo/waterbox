@@ -86,7 +86,7 @@ If you're using a JetBrains IDE, try going to *Settings > Appearance & Behavior 
 
 ### Browser Console: Cannot read property 'apply' of undefined (on startup)
 
-If you've upgraded sql.js to 1.4.0, you'll get this error. It's not yet supported. Please use 1.3.2 for now.
+There might be cached files in `dist` and `.cache` that are messing with the build. You can delete the two folders manually, or use `npm run clean` to do it for you. After that, the next `npm start` should work.
 
 ### How do you get a full-width layout?
 Water.css lets you create a good-looking document without writing any CSS at all. As part of its job, it centers the document and limits the horizontal width of `<body>` to improve readability. 
