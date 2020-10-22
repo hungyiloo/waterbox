@@ -1,0 +1,116 @@
+
+/*****************************************************************************/
+/*                   Water.css Theming Can Be Adjusted Here                  */
+/*****************************************************************************/
+
+/* The color definitions accessed via theme(colors...) are defined in
+   colors.js for consistency between Tailwind and Water.
+   If you want these variables to have different colors within your palette,
+   assign them using theme(colors...)
+
+   All of these colors are available with values 100-900 in increments of 100:
+   (100 is the lightest and 900 is the darkest)
+
+     gray, red, orange, yellow, green, teal, blue, indigo,
+     purple, pink, rose, fuchsia, violet, lightBlue, cyan,
+     emerald, lime, amber, warmGray, trueGray, coolGray, blueGray
+
+   You can use these colors in main.css too.
+   If you want to change the actual color values returned by theme(colors...), change them in colors.js
+   If you're not using Tailwind, uncomment the blocks that contain the plain color definitions
+   and stop using theme(colors...) everywhere.
+*/
+:root {
+  --background-body: theme(colors.white);
+  --background: theme(colors.blueGray.200);
+  --background-alt: theme(colors.blueGray.100);
+  --selection: theme(colors.blueGray.300);
+  --text-main: theme(colors.blueGray.800);
+  --text-bright: theme(colors.black);
+  --text-muted: theme(colors.blueGray.400);
+  --links: theme(colors.blue.600);
+  --focus: theme(colors.blue.400)ab;
+  --border: theme(colors.blueGray.200);
+  --code: theme(colors.black);
+  --animation-duration: 0.1s;
+  --button-hover: theme(colors.blueGray.300);
+  --scrollbar-thumb: theme(colors.coolGray.400);
+  --scrollbar-thumb-hover: theme(colors.blueGray.500);
+  --form-placeholder: theme(colors.blueGray.600);
+  --form-text: theme(colors.black);
+  --variable: theme(colors.green.500);
+  --highlight: theme(colors.yellow.400);
+
+  /* If you're not using Tailwind, uncomment the block below for */
+  /* original water.css light theming. You can tweak these manually. */
+  /*
+  --background-body: #fff;
+  --background: #efefef;
+  --background-alt: #f7f7f7;
+  --selection: #9e9e9e;
+  --text-main: #363636;
+  --text-bright: #000;
+  --text-muted: #70777f;
+  --links: #0076d1;
+  --focus: #0096bfab;
+  --border: #dbdbdb;
+  --code: #000;
+  --animation-duration: 0.1s;
+  --button-hover: #ddd;
+  --scrollbar-thumb: rgb(213, 213, 213);
+  --scrollbar-thumb-hover: rgb(196, 196, 196);
+  --form-placeholder: #949494;
+  --form-text: #000;
+  --variable: #39a33c;
+  --highlight: #ff0; */
+}
+
+/* Delete or comment out this entire section if you don't want the dark theme */
+/* Or to ALWAYS use the dark theme, copy ALL of the color values below*/
+/* and replace them in the section above */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-body: theme(colors.coolGray.800);
+    --background: theme(colors.coolGray.900);
+    --background-alt: theme(colors.blueGray.700);
+    --selection: theme(colors.blue.600);
+    --text-main: theme(colors.coolGray.200);
+    --text-bright: theme(colors.white);
+    --text-muted: theme(colors.coolGray.400);
+    --links: theme(colors.blue.400);
+    --focus: theme(colors.blue.300)ab;
+    --border: theme(colors.coolGray.700);
+    --code: theme(colors.orange.300);
+    --animation-duration: 0.1s;
+    --button-hover: theme(colors.blueGray.700);
+    --scrollbar-thumb: var(--button-hover);
+    --scrollbar-thumb-hover: theme(colors.blueGray.600);
+    --form-placeholder: theme(colors.coolGray.500);
+    --form-text: theme(colors.white);
+    --variable: theme(colors.pink.500);
+    --highlight: theme(colors.yellow.400);
+
+    /* If you're not using Tailwind, uncomment the block below for */
+    /* original water.css dark theming. You can tweak these manually. */
+    /*
+    --background-body: #202b38;
+    --background: #161f27;
+    --background-alt: #1a242f;
+    --selection: #1c76c5;
+    --text-main: #dbdbdb;
+    --text-bright: #fff;
+    --text-muted: #a9b1ba;
+    --links: #41adff;
+    --focus: #0096bfab;
+    --border: #526980;
+    --code: #ffbe85;
+    --animation-duration: 0.1s;
+    --button-hover: #324759;
+    --scrollbar-thumb: var(--button-hover);
+    --scrollbar-thumb-hover: rgb(20, 20, 20);
+    --form-placeholder: #a9a9a9;
+    --form-text: #fff;
+    --variable: #d941e2;
+    --highlight: #efdb43; */
+  }
+}

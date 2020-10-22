@@ -2,7 +2,7 @@
 
 WaterBox is a low-code boilerplate base for rapid prototyping and interactive demos using [TypeScript](https://www.typescriptlang.org/), [SQLite](https://www.sqlite.org/) (with [sql.js](https://sql.js.org/)) and [Mustache](https://github.com/janl/mustache.js) templating, **all run within the browser with no server required**.
 
-It's all glued together using [Parcel](https://parceljs.org/) and has some nice semantic styling from [Water.css](https://github.com/kognise/water.css).
+It's all glued together using [Parcel](https://parceljs.org/) and has some nice semantic default styling from [Water.css](https://github.com/kognise/water.css) and convenient access to all of [Tailwind CSS](https://tailwindcss.com/)'s utility classes for styling things *fast*.
 
 **See an example app with in-browser SQL querying [here](https://brave-panini-a4cca2.netlify.app/)**.
 
@@ -18,7 +18,7 @@ WaterBox is built on a foundation of time-tested technologies that most develope
 
 With very little code (you could read it all in 20 minutes) WaterBox ties it all together into a simple `npm start` with live-reloading to let you get on with preparing that important demo. You won't have to worry about TypeScript compilation, running a web server, etc.
 
-And Water.css gives you free *classless* styling as long as you write proper HTML. You only have to write CSS for the UI that you *really* want to customize.
+And Water.css gives you free *classless* styling as long as you write proper HTML. For more advanced styling, Tailwind CSS gives you thousands of utility classes that you can write directly in to your HTML. You only have to write plain CSS for the UI that you *really* want to deeply customize.
 
 There is no right or wrong way to do something with WaterBox. Keep what you need, delete what you don't, and change the rest to your liking.
 
@@ -57,7 +57,7 @@ For example, to load [Leaflet](https://leafletjs.com/examples/quick-start/) prop
 Then you can use Leaflet normally within TypeScript.
 
 ### The Quick & Dirty Way
-If you want to load something quick smart, find the CDN URLs from https://cdnjs.com/ and put them in the `<head>` of `index.html`. You can refer to the global variables that the libraries expose within TypeScript (e.g. `main.ts`) but your editor may complain, since there are no types defined.
+If you want to load something really quickly, find the CDN URLs from https://cdnjs.com/ and put them in the `<head>` of `index.html`. You can refer to the global variables that the libraries expose within TypeScript (e.g. `main.ts`) but your editor may complain, since there are no types defined.
 
 For example, if you wanted to quickly import [Leaflet](https://leafletjs.com/examples/quick-start/), you'll need to use the global `L` interact with Leaflet. TypeScript doesn't know about `L`, so you'll need to tell it to ignore `L` by adding a line near the top of your TypeScript file:
 
@@ -68,13 +68,15 @@ declare const L: any;
 The downside of this approach is that `L` and all its methods and classes will be typeless, so you're on your own.
 
 ## Theming
-WaterBox is set up with Water.css's automatic light/dark theme switching based on the user's system preferences. Follow the instructions in `./styles/main.css` for how to force light or dark themes all the time.
+WaterBox is set up with Water.css's automatic light/dark theme switching based on the user's system preferences. Follow the instructions in `./styles/theme.css` for how to force light or dark themes all the time.
 
-You can also adjust the variables in `main.css` to adjust the overall colors.
+You can also adjust the variables in `theme.css` to adjust the overall colors. You have the choice of mapping them to different colors with Tailwind's color palette (defined in `./colors.js`) using `theme(colors...)` or defining them manually by hand. 
+
+You can also redefine colors directly in `colors.js` so that your colors will be accessible through Tailwind's utility classes too. Use one of the many color palette generators online to help you with this.
 
 ## Building
 
-WaterBox is **not meant for production** but it can be built to be served statically, if you must do it. Just `npm run build` and grab the output from the `./dist/` folder and host wherever you like.
+WaterBox is **not meant for production** but it can be built to be served statically from any plain web server (no nodejs or application server required). Just `npm run build` and grab the output from the `./dist/` folder and host wherever you like.
 
 ## Troubleshooting
 
@@ -85,3 +87,17 @@ If you're using a JetBrains IDE, try going to *Settings > Appearance & Behavior 
 ### Browser Console: Cannot read property 'apply' of undefined (on startup)
 
 If you've upgraded sql.js to 1.4.0, you'll get this error. It's not yet supported. Please use 1.3.2 for now.
+
+### How do you get a full-width layout?
+Water.css lets you create a good-looking document without writing any CSS at all. As part of its job, it centers the document and limits the horizontal width of `<body>` to improve readability. 
+
+To override this easily, add the following CSS somewhere on the page, either in an individual mustache template, in `index.html`, or in `main.css`:
+
+``` css
+body {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+```
+

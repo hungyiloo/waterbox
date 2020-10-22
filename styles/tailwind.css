@@ -36,3 +36,13 @@ input[type="checkbox" i], input[type="radio" i] {
   margin-top: 3px;
   margin-left: 4px;
 }
+
+/* Restore some blockquote styling */
+body blockquote, body q {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: var(--focus);
+  margin: 1.5em 0;
+  padding: .5em 1em;
+  font-style: italic;
+}
