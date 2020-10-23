@@ -8,7 +8,7 @@
    optimize the build and reduce loading time.
 */
 @import '../node_modules/remixicon/fonts/remixicon.css';
-[class*=" ri-"], [class^=ri=] {
+[class*=" ri-"], [class^="ri="] {
   /* Improve vertical alignment to sit neatline inside text */
   position: relative;
   top: 0.15em;
