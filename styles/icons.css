@@ -4,10 +4,15 @@
    <i class="ri-heart-fill"></i>
    Where "ri-heart-fill" is the icon name as found on https://remixicon.com
 
-   If you aren't using icon fonts, you can remove the following line to
+   If you aren't using icon fonts, you can remove the following section to
    optimize the build and reduce loading time.
 */
 @import '../node_modules/remixicon/fonts/remixicon.css';
+[class*=" ri-"], [class^=ri=] {
+  /* Improve vertical alignment to sit neatline inside text */
+  position: relative;
+  top: 0.15em;
+}
 
 /* To use an icon via SVG sprites:
    <svg class="ri">
@@ -17,10 +22,11 @@
 */
 .ri {
   fill: currentColor;
-  height: 1.1em;
-  width: 1.1em;
+  height: 1em;
+  width: 1em;
   display: inline-block;
   vertical-align: baseline;
+  /* Improve vertical alignment to sit neatline inside text */
   position: relative;
-  top: 0.1em;
+  top: 0.15em;
 }
