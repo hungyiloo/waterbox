@@ -1,4 +1,5 @@
-import * as Mustache from 'mustache';
+import Mustache from 'mustache';
+import morphdom from 'morphdom';
 
 export async function renderContainer(containerSelector: string, templateName: string, view: any = {}) {
   const container = document.querySelector(containerSelector);
@@ -9,6 +10,6 @@ export async function renderContainer(containerSelector: string, templateName: s
   if (loadingSpinner) {
     loadingSpinner.remove();
   }
-  container.innerHTML = markup;
+  morphdom(container, `<div>${markup}</div>`, { childrenOnly: true });
   console.info(`Rendered '${templateName}' into container '${containerSelector}' with data`, view);
 }

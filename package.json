@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/morphdom": "^2.4.2",
     "@types/mustache": "^4.0.1",
     "@types/sql.js": "^1.0.3",
+    "morphdom": "^2.6.1",
     "mustache": "^4.0.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.5.0",
