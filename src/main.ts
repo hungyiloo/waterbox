@@ -30,20 +30,23 @@ export async function main() {
     await renderContainer(
       '#main-container', // Find this id inside .  /index.html
       'main.mustache',   // Find this template in ./templates/main.mustache
-      viewState          // View state for mustache to render
+      viewState,         // View state for mustache to render
+      {
+        afterRender: container => {
+          // Bind some example DOM event handlers.
+          // These need to be set up after the render, otherwise the buttons/inputs won't yet exist.
+          const queryButton = container.querySelector<HTMLButtonElement>('#query-btn');
+          const resetButton = container.querySelector<HTMLButtonElement>('#reset-btn');
+          const conditionInput = container.querySelector<HTMLInputElement>('#condition-input');
+          const tailwindButton = container.querySelector<HTMLButtonElement>('#go-to-tailwind-btn');
+
+          queryButton.onclick = handleQuery;
+          resetButton.onclick = handleReset;
+          conditionInput.onkeypress = handleInputKeypress;
+          tailwindButton.onclick = handleTailwindNavigation;
+        }
+      }
     );
-
-    // Bind some example DOM event handlers.
-    // These need to be set up after the render, otherwise the buttons/inputs won't yet exist.
-    const queryButton = getById<HTMLButtonElement>('query-btn');
-    const resetButton = getById<HTMLButtonElement>('reset-btn');
-    const conditionInput = getById<HTMLInputElement>('condition-input');
-    const tailwindButton = getById<HTMLButtonElement>('go-to-tailwind-btn');
-
-    queryButton.onclick = handleQuery;
-    resetButton.onclick = handleReset;
-    conditionInput.onkeypress = handleInputKeypress;
-    tailwindButton.onclick = handleTailwindNavigation;
   }
 
 
@@ -74,6 +77,7 @@ export async function main() {
 
 
   // Execute the initial render ///////////////////////////////////////////////
+  getById('loading-spinner')?.remove();
   await renderFruits({
     fruits: getFruits()
   });
