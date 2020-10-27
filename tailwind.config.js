@@ -1,6 +1,7 @@
 const colors = require('./colors');
 
 module.exports = {
+  important: "#app",
   theme: {
     colors, // edit the default theme colors in colors.js
     extend: {
