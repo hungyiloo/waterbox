@@ -1,16 +1,25 @@
 import initSqlJs from 'sql.js';
 import { SqlJs } from 'sql.js/module';
 
-const DB_LOCATION = 'db.sqlite';
+const DEFAULT_DB_LOCATION = 'db.sqlite';
+const databaseConnections = new Map<string, Promise<SqlJs.Database>>();
 
-export async function initDatabase() {
-  const [SQL, dbFile] = await Promise.all([
-    initSqlJs(),
-    fetch(DB_LOCATION)
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => new Uint8Array(arrayBuffer))
-  ]);
-  const db = new SQL.Database(dbFile);
+export async function useDatabase(dbUrl?: string) {
+  const dbLocation = dbUrl || DEFAULT_DB_LOCATION;
+
+  const dbPromise = (
+    databaseConnections.get(dbLocation)
+      || Promise.all([
+        initSqlJs(),
+        fetch(dbLocation)
+          .then(response => response.arrayBuffer())
+          .then(arrayBuffer => new Uint8Array(arrayBuffer))
+      ]).then(([SQL, dbFile]) => new SQL.Database(dbFile))
+  );
+
+  databaseConnections.set(dbLocation, dbPromise);
+
+  const db = await dbPromise;
   return {
     /**
      * The raw SQL database for low-level interaction using sql.js API

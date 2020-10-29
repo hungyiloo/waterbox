@@ -1,5 +1,5 @@
 import { getById } from './helpers';
-import { initDatabase } from './database';
+import { useDatabase } from './database';
 import { renderContainer } from './renderer';
 
 /**
@@ -8,7 +8,7 @@ import { renderContainer } from './renderer';
 export async function main() {
 
   // Initialise app-wide context //////////////////////////////////////////////
-  const { db, query, queryFirst } = await initDatabase();
+  const { query } = await useDatabase();
 
 
   // Data access methods //////////////////////////////////////////////////////
