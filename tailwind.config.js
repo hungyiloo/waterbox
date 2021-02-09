@@ -1,6 +1,10 @@
 const colors = require('./colors');
 
 module.exports = {
+  purge: [
+    "templates/**/*.mustache",
+    "index.html"
+  ],
   important: "#app",
   theme: {
     colors, // edit the default theme colors in colors.js
